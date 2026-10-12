@@ -1,0 +1,35 @@
+{
+  "protocol_version": "N02_Main_Evaluation_Dataset_Design_v1.0",
+  "rows": 400,
+  "topic_clusters": 100,
+  "styles_per_topic": 4,
+  "tokenizers": {
+    "gpt2": "gpt2",
+    "pythia-160m": "EleutherAI/pythia-160m"
+  },
+  "length_bands": {
+    "short": [
+      16,
+      64
+    ],
+    "medium": [
+      65,
+      128
+    ],
+    "long": [
+      129,
+      256
+    ]
+  },
+  "band_failures_across_tokenizers": 0,
+  "all_candidates_in_band_for_both_tokenizers": true,
+  "human_content_review_complete": true,
+  "frozen_for_confirmatory_analysis": true,
+  "candidate_text_manifest_sha256": "6ee896f70f221a63f5dea364e4ce49dc95c53702fc05aded70ebb022b232e743",
+  "frozen_manifest_file_sha256": "927d2cc127dfdd0661c62be62f2575f80745787d1a7fc73c2d78771736a47c1e",
+  "frozen_manifest_path": "/content/n02_main_eval_preflight/N02_Main_Evaluation_FROZEN_Manifest.csv",
+  "resampling_unit_for_matched_style_contrasts": "topic_id cluster; retain all four styles per resampled topic",
+  "bootstrap_replicates": 10000,
+  "pilot_prompts_excluded": true,
+  "notes": "Do not capture activations unless frozen_for_confirmatory_analysis is true."
+}

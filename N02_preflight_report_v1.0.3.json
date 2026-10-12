@@ -1,0 +1,51 @@
+{
+  "protocol_version": "N02_Main_Evaluation_Dataset_Design_v1.0.3",
+  "rows": 400,
+  "topic_clusters": 100,
+  "styles_per_topic": 4,
+  "tokenizers": {
+    "gpt2": "gpt2",
+    "pythia-160m": "EleutherAI/pythia-160m"
+  },
+  "length_bands": {
+    "short": [
+      16,
+      64
+    ],
+    "medium": [
+      65,
+      128
+    ],
+    "long": [
+      129,
+      256
+    ]
+  },
+  "hard_check_failures": [],
+  "warnings": [
+    "24 code texts contain no domain word (topic info only via numbers/none): ['T002_code_plus_natural_language', 'T007_code_plus_natural_language', 'T014_code_plus_natural_language', 'T024_code_plus_natural_language', 'T032_code_plus_natural_language', 'T034_code_plus_natural_language', 'T035_code_plus_natural_language', 'T037_code_plus_natural_language', 'T038_code_plus_natural_language', 'T040_code_plus_natural_language', 'T042_code_plus_natural_language', 'T043_code_plus_natural_language', 'T044_code_plus_natural_language', 'T046_code_plus_natural_language', 'T050_code_plus_natural_language', 'T055_code_plus_natural_language', 'T056_code_plus_natural_language', 'T064_code_plus_natural_language', 'T065_code_plus_natural_language', 'T066_code_plus_natural_language', 'T088_code_plus_natural_language', 'T093_code_plus_natural_language', 'T094_code_plus_natural_language', 'T096_code_plus_natural_language']",
+    "12 code texts share an identical template with another topic (differ only by numbers)"
+  ],
+  "all_candidates_in_band_for_both_tokenizers": true,
+  "human_review_of_replaced_items_done": false,
+  "frozen_for_confirmatory_analysis": false,
+  "source_manifest_file_sha256": "a9f4a23c631857dcbe80c76e3ee6732ee956ce5b007b5e1ea542da7b09ca8f48",
+  "replaced_text_ids": [
+    "T039_code_plus_natural_language",
+    "T041_code_plus_natural_language",
+    "T048_code_plus_natural_language",
+    "T067_code_plus_natural_language",
+    "T085_code_plus_natural_language",
+    "T088_code_plus_natural_language",
+    "T090_code_plus_natural_language"
+  ],
+  "sample_values_source": "original v1.0 candidate manifest",
+  "candidate_text_manifest_sha256": "3b3c049bc723e7e7c324c74975994271f7e7e9bb176b247ce621589ce56b43fc",
+  "role_in_manifest": [
+    "candidate_main_eval_not_frozen"
+  ],
+  "bootstrap_replicates": 10000,
+  "pilot_prompts_excluded": true,
+  "manifest_file": "N02_Main_Evaluation_CANDIDATE_Manifest_v1.0.3.csv",
+  "manifest_file_sha256": "4d2a7590b2c13310aa798fd89bb2a7f07c3fa26696967c0fcfc025b236b63158"
+}

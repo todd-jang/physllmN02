@@ -1,0 +1,9 @@
+[project]
+name = "physllm-n02-colab-workspace"
+version = "0.1.0"
+description = "Reproducible integrity audit workspace for PhysLLM N02"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

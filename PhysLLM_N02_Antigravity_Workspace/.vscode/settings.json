@@ -1,0 +1,14 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"],
+  "jupyter.askForKernelRestart": false,
+  "notebook.output.scrolling": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/__pycache__": true
+  }
+}

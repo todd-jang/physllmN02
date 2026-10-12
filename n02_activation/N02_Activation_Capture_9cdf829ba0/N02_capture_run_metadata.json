@@ -1,0 +1,36 @@
+{
+  "protocol": "N02_Main_Evaluation_Activation_Capture_v1.0",
+  "started_utc": "2026-10-11T12:38:28.144230+00:00",
+  "manifest_path": "/content/n02_main_eval_preflight/N02_Main_Evaluation_FROZEN_Manifest.csv",
+  "manifest_file_sha256": "9cdf829ba0f7a1e4da51e95270f96943ffb7a65b441ed6fd3c11840e887b0c17",
+  "text_fingerprint_sha256": "3a5835d8a65c1a383332c4e1911c9944614139704adbd743f3116ac79a5c0f27",
+  "models_requested": {
+    "gpt2": "gpt2",
+    "pythia-160m": "EleutherAI/pythia-160m"
+  },
+  "expected_text_model_jobs": 800,
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.18.0",
+  "device": "cuda",
+  "gpu_name": "Tesla T4",
+  "capture_unit": "text_id × model × Transformer block",
+  "saved_tensors": "scalar observables only; full block states are transient",
+  "status": "COMPLETE",
+  "finished_utc": "2026-10-11T12:39:27.963367+00:00",
+  "completed_text_model_jobs": 800,
+  "missing_text_model_jobs": 0,
+  "error_jobs": 0,
+  "metric_rows": 9600,
+  "metrics_csv": "/content/n02_activation_capture_9cdf829ba0/N02_activation_metrics.csv",
+  "status_csv": "/content/n02_activation_capture_9cdf829ba0/N02_capture_status.csv",
+  "final_validation": {
+    "manifest_hash_recorded": true,
+    "no_duplicate_metric_keys": true,
+    "primary_numeric_metrics_finite": true,
+    "all_800_text_model_jobs_complete": true,
+    "metric_row_count_matches_completed_layer_counts": true,
+    "every_text_model_has_expected_layer_rows": true,
+    "preflight_report_hash_still_matches_input": true
+  }
+}

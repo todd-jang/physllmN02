@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+*.pyc
+results/**
+!results/.gitkeep
+reports/audits/**
+!reports/audits/.gitkeep
+.DS_Store

@@ -1,0 +1,4 @@
+pandas>=2.0,<3.0
+pytest>=8.0,<9.0
+# Optional independent tokenizer checks:
+transformers>=4.45,<6.0

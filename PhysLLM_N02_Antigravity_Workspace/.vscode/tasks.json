@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "N02: Audit candidate manifest (local CPU)",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/scripts/audit_manifest.py",
+        "--manifest",
+        "${workspaceFolder}/data/candidate/N02_Main_Evaluation_CANDIDATE_Manifest_v1.0.3.csv",
+        "--out-dir",
+        "${workspaceFolder}/reports/audits/local_run",
+        "--review-ledger",
+        "${workspaceFolder}/data/review/human_review_queue.csv"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "N02: Run workspace tests",
+      "type": "process",
+      "command": "python",
+      "args": ["-m", "pytest", "-q"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}

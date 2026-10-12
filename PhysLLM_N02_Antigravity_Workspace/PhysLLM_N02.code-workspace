@@ -1,0 +1,19 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": ["tests"],
+    "notebook.output.scrolling": true,
+    "files.trimTrailingWhitespace": true
+  },
+  "extensions": {
+    "recommendations": [
+      "Google.colab",
+      "ms-toolsai.jupyter",
+      "ms-python.python",
+      "ms-python.vscode-pylance"
+    ]
+  }
+}
