@@ -26,6 +26,8 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
+from norm_metrics import norm_change_metrics
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKSPACE_ROOT = SCRIPT_DIR.parent
 DEFAULT_METRICS = WORKSPACE_ROOT / "results/activations/N02_activation_metrics.csv"
@@ -49,11 +51,22 @@ def load_metrics(path: Path) -> pd.DataFrame:
         "rho_block", "n_tokens", "hidden_dim",
         "input_norm_fro", "output_norm_fro", "update_norm_fro",
         "update_norm_per_token", "update_rms_per_element",
-        "input_update_cosine", "output_input_norm_ratio",
+        "input_update_cosine",
     ]
     missing = [c for c in required_cols if c not in df.columns]
     if missing:
         raise ValueError(f"Missing columns: {missing}")
+    derived = df.apply(
+        lambda row: norm_change_metrics(
+            float(row["input_norm_fro"]), float(row["output_norm_fro"])
+        ),
+        axis=1,
+        result_type="expand",
+    )
+    for column in derived.columns:
+        df[column] = derived[column]
+    if "capture_point" not in df.columns:
+        df["capture_point"] = "legacy_block_boundary"
     return df
 
 
@@ -68,6 +81,8 @@ def layer_profile_by_rho(df: pd.DataFrame) -> pd.DataFrame:
         std_cosine=("input_update_cosine", "std"),
         mean_norm_ratio=("output_input_norm_ratio", "mean"),
         std_norm_ratio=("output_input_norm_ratio", "std"),
+        mean_relative_norm_change=("relative_norm_change", "mean"),
+        mean_log_norm_ratio=("log_norm_ratio", "mean"),
         mean_update_rms=("update_rms_per_element", "mean"),
         mean_update_per_token=("update_norm_per_token", "mean"),
         n_texts=("text_id", "nunique"),
@@ -139,6 +154,8 @@ def model_summary(df: pd.DataFrame) -> pd.DataFrame:
         total_obs=("text_id", "count"),
         global_mean_cosine=("input_update_cosine", "mean"),
         global_mean_norm_ratio=("output_input_norm_ratio", "mean"),
+        global_mean_relative_norm_change=("relative_norm_change", "mean"),
+        global_mean_log_norm_ratio=("log_norm_ratio", "mean"),
         global_mean_update_rms=("update_rms_per_element", "mean"),
     ).reset_index()
     agg["norm_type"] = agg["model_key"].map(
@@ -229,7 +246,9 @@ def run_analysis(metrics_path: Path, out_dir: Path) -> None:
         "scope_document": "N02_Architecture_Scope_v1.0.md",
         "normalization_rules": [
             "rho_block for cross-depth comparison",
-            "dimensionless ratios (cosine, norm_ratio) for cross-model comparison",
+            "relative_norm_change=(output_norm_fro-input_norm_fro)/input_norm_fro",
+            "log_norm_ratio=ln(output_norm_fro)-ln(input_norm_fro)",
+            "dimensionless ratios (cosine, norm changes) for cross-model comparison",
             "update_rms_per_element for dim-normalized magnitude",
         ],
     }

@@ -4,7 +4,8 @@
 Captures block-boundary hidden states and computes the three registered N02 observables:
 1. Length-adjusted block update norm: ||h_(l+1) - h_l||_F / sqrt(T)
 2. Input-update cosine: cos(h_l, Δh_l)
-3. Output/input norm ratio: ||h_(l+1)||_F / ||h_l||_F
+3. Relative norm change: (||h_(l+1)||_F - ||h_l||_F) / ||h_l||_F
+4. Log norm ratio: ln(||h_(l+1)||_F) - ln(||h_l||_F)
 """
 from __future__ import annotations
 
@@ -20,6 +21,10 @@ from typing import Any
 import pandas as pd
 import torch
 import transformers
+
+from norm_metrics import norm_change_metrics
+
+CAPTURE_POINT = "residual_stream_block_boundary_pre_norm"
 
 DEFAULT_MODELS = {
     "gpt2": "gpt2",
@@ -150,6 +155,7 @@ def extract_metrics_single_text(
         delta = h_out - h_in
         in_norm = torch.linalg.vector_norm(h_in).item()
         out_norm = torch.linalg.vector_norm(h_out).item()
+        norm_changes = norm_change_metrics(in_norm, out_norm)
         delta_norm = torch.linalg.vector_norm(delta).item()
         dot = torch.sum(h_in * delta).item()
         cosine = (
@@ -170,6 +176,7 @@ def extract_metrics_single_text(
             "rho_block": l / max(n_blocks - 1, 1),
             "n_tokens": n_tokens,
             "hidden_dim": int(h_in.shape[-1]),
+            "capture_point": CAPTURE_POINT,
             "input_norm_fro": in_norm,
             "output_norm_fro": out_norm,
             "update_norm_fro": delta_norm,
@@ -177,7 +184,7 @@ def extract_metrics_single_text(
             "update_rms_per_element": delta_norm
             / math.sqrt(max(n_tokens * h_in.shape[-1], 1)),
             "input_update_cosine": cosine,
-            "output_input_norm_ratio": out_norm / max(in_norm, 1e-12),
+            **norm_changes,
         })
 
     meta = {
@@ -185,6 +192,7 @@ def extract_metrics_single_text(
         "architecture": architecture,
         "n_layers": n_blocks,
         "hidden_dim": int(states[0].shape[-1]),
+        "capture_point": CAPTURE_POINT,
     }
     return rows, meta
 
@@ -357,4 +365,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
