@@ -1,0 +1,24 @@
+{
+  "manifest_sha256": "841aca615f3bd27a723e714fb2129af1f4b078155d1f169b591baaf88291d7e9",
+  "text_fingerprint": "3b3c049bc723e7e7c324c74975994271f7e7e9bb176b247ce621589ce56b43fc",
+  "code": "notebooks/04_colab_l4_qwen_gemma_capture.ipynb",
+  "device": "cuda",
+  "gpu_name": "NVIDIA L4",
+  "model_dtype": "torch.float32",
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.18.0",
+  "run_started_utc": "2026-10-18T07:48:07.342929+00:00",
+  "run_finished_utc": "2026-10-18T07:49:08.216600+00:00",
+  "models": {
+    "qwen2.5-0.5b": "Qwen/Qwen2.5-0.5B",
+    "qwen2.5-1.5b": "Qwen/Qwen2.5-1.5B",
+    "qwen2.5-3b": "Qwen/Qwen2.5-3B",
+    "gemma-2-2b": "google/gemma-2-2b"
+  },
+  "per_model": {
+    "gemma-2-2b": {
+      "hf_id": "google/gemma-2-2b"
+    }
+  }
+}

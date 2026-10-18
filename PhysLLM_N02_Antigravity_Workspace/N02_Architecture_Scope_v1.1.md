@@ -55,8 +55,8 @@ N02 확증 분석은 **dense attention(MHA/GQA) + dense feed-forward FFN** Trans
 | MHA + LayerNorm + serial | gpt2 | ✅ 400×12 | 확증 분석 |
 | MHA + LayerNorm + parallel | pythia-160m | ✅ 400×12 | 확증 분석 |
 | GQA + RMSNorm + serial | qwen2.5-0.5b | ✅ 400×24 | 확증 분석 |
-| GQA + RMSNorm | qwen2.5-1.5b / 3B | ⏳ 캡처 예정 (Colab L4 · nb 04) | 캡처·검증·provenance 확정 후 |
-| GQA + RMSNorm (soft-cap/sliding) | gemma-2-2b | ⏳ 캡처 예정 (Colab L4 · nb 04) | 캡처·검증·provenance 확정 후 |
+| GQA + RMSNorm | qwen2.5-1.5b / 3B | ✅ 400×28 / 400×36 (Colab L4 fp32) | 스케일 축 확증 (5모델 병합) |
+| GQA + RMSNorm (soft-cap/sliding) | gemma-2-2b | ⚠️ 캡처됨(Colab L4) — 행정합식 이상 발견 → 재캡처 필요 | gemma 분기 별도 검증 전 미사용 |
 
 ## 6. v1.0 대비 교정 사항
 
