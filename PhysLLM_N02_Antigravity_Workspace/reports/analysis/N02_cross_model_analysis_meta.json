@@ -1,14 +1,15 @@
 {
-  "analysis_timestamp_utc": "2026-10-18T08:05:03.643795+00:00",
+  "analysis_timestamp_utc": "2026-10-18T08:55:51.109126+00:00",
   "metrics_file": "N02_activation_metrics.csv",
   "models_analyzed": [
+    "gemma-2-2b",
     "gpt2",
     "pythia-160m",
     "qwen2.5-0.5b",
     "qwen2.5-1.5b",
     "qwen2.5-3b"
   ],
-  "total_observations": 44800,
+  "total_observations": 44826,
   "scope_document": "N02_Architecture_Scope_v1.0.md",
   "normalization_rules": [
     "rho_block for cross-depth comparison",
