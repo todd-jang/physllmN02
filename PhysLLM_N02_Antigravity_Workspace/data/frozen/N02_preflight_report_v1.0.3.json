@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "protocol_version": "N02_Main_Evaluation_Dataset_Design_v1.0.3",
+  "freeze_timestamp_utc": "2026-10-17T12:15:55.818442+00:00",
+  "frozen_manifest_file": "N02_Main_Evaluation_FROZEN_Manifest_v1.0.3.csv",
+  "frozen_manifest_file_sha256": "841aca615f3bd27a723e714fb2129af1f4b078155d1f169b591baaf88291d7e9",
+  "candidate_source_manifest_file": "N02_Main_Evaluation_CANDIDATE_Manifest_v1.0.3.csv",
+  "candidate_source_manifest_sha256": "4d2a7590b2c13310aa798fd89bb2a7f07c3fa26696967c0fcfc025b236b63158",
+  "candidate_text_manifest_sha256": "3b3c049bc723e7e7c324c74975994271f7e7e9bb176b247ce621589ce56b43fc",
+  "frozen_for_confirmatory_analysis": true,
+  "human_review_complete": true,
+  "all_rows_approved": true,
+  "review_required_rows": 0,
+  "reviewer": "N02_Audit_Team",
+  "review_ledger_path": "data/review/human_review_queue.csv",
+  "rows": 400,
+  "topic_clusters": 100,
+  "styles_per_topic": 4,
+  "length_tiers": {
+    "short": 136,
+    "medium": 132,
+    "long": 132
+  },
+  "tokenizers": {
+    "gpt2": "gpt2",
+    "pythia-160m": "EleutherAI/pythia-160m"
+  },
+  "models_targeted": [
+    "gpt2",
+    "EleutherAI/pythia-160m",
+    "Qwen/Qwen2.5-3B",
+    "google/gemma-2-2b"
+  ],
+  "bootstrap_replicates": 10000,
+  "pilot_prompts_excluded": true,
+  "role_in_manifest": [
+    "main_eval_frozen"
+  ],
+  "sampling_unit": "topic_id_cluster",
+  "decision_notes": "Option B confirmed: T002, T007, T032 accepted with documented rationale for short tier 64-token bound; 82 code template groups verified as orthogonal experimental invariance."
+}

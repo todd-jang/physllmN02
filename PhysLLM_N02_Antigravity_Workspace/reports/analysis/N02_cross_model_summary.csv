@@ -1,0 +1,4 @@
+model_key,n_layers,hidden_dim,n_texts,total_obs,global_mean_cosine,global_mean_norm_ratio,global_mean_update_rms,norm_type,attn_type
+gpt2,12,768,400,4800,0.266180,2.125504,3.397683,LayerNorm,MHA
+pythia-160m,12,768,400,4800,-0.027935,2.393154,0.864839,LayerNorm,MHA
+qwen2.5-0.5b,24,896,400,9600,0.035936,1.925589,0.843202,RMSNorm,GQA
