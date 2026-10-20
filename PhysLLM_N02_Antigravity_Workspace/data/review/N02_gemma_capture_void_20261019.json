@@ -1,0 +1,165 @@
+{
+  "schema": "physllm.n02.void_manifest/1",
+  "generated_utc": "2026-10-19T10:21:19+00:00",
+  "repo_head": "cca2598",
+  "scope": "gemma-2-2b capture provenance",
+  "decision": "gemma-2-2b 26-row capture used since commit 478e5a3 originated from (5).zip and is normalized, not raw. Valid raw capture is (3)/(4).zip.",
+  "valid_raw_sources": [
+    {
+      "artifact": "N02_results_qwen_gemma_capture (3).zip",
+      "zip_sha256": "e52401f008c8aec9570d3f49f84595799201bad8877070fd8b8d6ba5fa1da072",
+      "zip_bytes": 6090550,
+      "rows": 44826,
+      "gemma_rows": 26,
+      "gemma_texts": 1,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 0,
+      "identity_median": 6.95544629659337e-15,
+      "identity_max": 3.725059052298707e-14,
+      "cos_min": -0.5483503101737419,
+      "cos_max": 0.19330484877049614,
+      "layer0_in_norm": 1271.3928002765458,
+      "layer0_update_rms": 1.4585563839617433,
+      "verdict": "VALID_RAW"
+    },
+    {
+      "artifact": "N02_results_qwen_gemma_capture (4).zip",
+      "zip_sha256": "498f62844161ced3b517263a569629ca637d219083017acffaf45a8bac0193a9",
+      "zip_bytes": 5353509,
+      "rows": 44826,
+      "gemma_rows": 26,
+      "gemma_texts": 1,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 0,
+      "identity_median": 6.95544629659337e-15,
+      "identity_max": 3.725059052298707e-14,
+      "cos_min": -0.5483503101737419,
+      "cos_max": 0.19330484877049614,
+      "layer0_in_norm": 1271.3928002765458,
+      "layer0_update_rms": 1.4585563839617433,
+      "verdict": "VALID_RAW",
+      "note": "metrics CSV byte-identical to (3).zip"
+    }
+  ],
+  "void_artifacts": [
+    {
+      "artifact": "N02_results_qwen_gemma_capture (1).zip",
+      "zip_sha256": "d328e3fe31cdcd2ddde6e6f285ef7e707dbe611a7d77db1288c8a16d4def43ac",
+      "zip_bytes": 6834409,
+      "rows": 55200,
+      "gemma_rows": 10400,
+      "gemma_texts": 400,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 0,
+      "identity_median": 0.4149030963750964,
+      "identity_max": 2.0926822934436173,
+      "cos_min": 0.9294159979205131,
+      "cos_max": 10.142048651123618,
+      "layer0_in_norm": 523.4345504452773,
+      "layer0_update_rms": 1.0850999353083588,
+      "verdict": "VOID",
+      "reason": "Internal inconsistency: gemma input_update_cosine exceeds 1.0 (max 10.1420), violating |cos|<=1; norm identity residual median 4.15e-1. Duplicate of (2)."
+    },
+    {
+      "artifact": "N02_results_qwen_gemma_capture (2).zip",
+      "zip_sha256": "d328e3fe31cdcd2ddde6e6f285ef7e707dbe611a7d77db1288c8a16d4def43ac",
+      "zip_bytes": 6834409,
+      "rows": 55200,
+      "gemma_rows": 10400,
+      "gemma_texts": 400,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 0,
+      "identity_median": 0.4149030963750964,
+      "identity_max": 2.0926822934436173,
+      "cos_min": 0.9294159979205131,
+      "cos_max": 10.142048651123618,
+      "layer0_in_norm": 523.4345504452773,
+      "layer0_update_rms": 1.0850999353083588,
+      "verdict": "VOID",
+      "reason": "Byte-identical duplicate of (1).zip (same zip SHA-256)."
+    },
+    {
+      "artifact": "N02_results_qwen_gemma_capture (5).zip",
+      "zip_sha256": "a7bef2993714cd2721a8dd0e0328091f4d325cab610780ded327e8edeb50bafc",
+      "zip_bytes": 5353027,
+      "rows": 44826,
+      "gemma_rows": 26,
+      "gemma_texts": 1,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 26,
+      "identity_median": 5.10702591327586e-15,
+      "identity_max": 1.199040866595184e-14,
+      "cos_min": -0.41491327003141915,
+      "cos_max": -0.14765788462732604,
+      "layer0_in_norm": 0.9999999999999599,
+      "layer0_update_rms": 0.001213383442200552,
+      "verdict": "VOID",
+      "reason": "Per-tensor normalized capture, not raw residual stream: input_norm_fro == output_norm_fro == 1.0 for 26/26 rows; update_rms_per_element 1.213e-3 versus 1.4586 in the raw capture (3)/(4)."
+    },
+    {
+      "artifact": "N02_results_qwen_gemma_capture.zip",
+      "zip_sha256": "69336018c6a4c87261d9dd685e10a78f1aa3f7c6a09e2ca830de26045787b7fa",
+      "zip_bytes": 7181833,
+      "rows": 55200,
+      "gemma_rows": 10400,
+      "gemma_texts": 400,
+      "gemma_layers": 26,
+      "gemma_in_norm_eq_1": 10400,
+      "identity_median": 0.0452152014705417,
+      "identity_max": 0.3527596922988227,
+      "cos_min": 0.0004189408871817,
+      "cos_max": 0.003023972050081,
+      "layer0_in_norm": 0.9999999999999896,
+      "layer0_update_rms": 1.0000000000000024,
+      "verdict": "VOID",
+      "reason": "Normalized AND internally inconsistent: input_norm_fro == 1.0 for 10,400/10,400 rows; norm identity residual median 4.52e-2 (max 3.53e-1). 400-text sweep unusable."
+    }
+  ],
+  "in_repo_void": [
+    {
+      "path": "results/activations/N02_activation_metrics.csv",
+      "sha256": "4e16bda0d15f0c5b59acff1851b016eda4768a511b668f3da5bdaefba6886473",
+      "status": "void_in_place",
+      "reason": "Contains gemma-2-2b rows from (5).zip (input_norm_fro == 1.0 for 26/26 rows)."
+    },
+    {
+      "path": "results/activations/N02_activation_metrics_6models_correct_20261018.csv",
+      "sha256": "4e16bda0d15f0c5b59acff1851b016eda4768a511b668f3da5bdaefba6886473",
+      "status": "moved_to_void_dir",
+      "reason": "Contains gemma-2-2b rows from (5).zip (input_norm_fro == 1.0 for 26/26 rows)."
+    },
+    {
+      "path": "results/activations/N02_activation_metrics_6models_20261018.csv",
+      "sha256": "fd276875aef81324aefec1d187efb70482c0d1cfd24401e27dd11eafdcd40844",
+      "status": "moved_to_void_dir",
+      "reason": "Contains gemma-2-2b rows from (5).zip (input_norm_fro == 1.0 for 26/26 rows)."
+    },
+    {
+      "path": "results/activations/N02_activation_metrics_gemma_fix_20261018.csv",
+      "sha256": "2ba598a5c5e04c0390bf0994bb940dcb68be0f2b961dfb2153c0ec43b6895f8a",
+      "status": "moved_to_void_dir",
+      "reason": "Contains gemma-2-2b rows from (5).zip (input_norm_fro == 1.0 for 26/26 rows)."
+    }
+  ],
+  "repaired_candidate": {
+    "path": "results/activations/N02_activation_metrics_6models_gemma_rawfix_20261019.csv",
+    "sha256": "b79ffc22310b40618b8ca8c0f9d17d1e5d1f86b70eb1626f81293ab28329cb2e",
+    "rows": 44826,
+    "gemma_rows": 26,
+    "gemma_in_norm_eq_1": 0,
+    "identity_median": 6.96e-15,
+    "identity_max": 3.73e-14,
+    "source": "gemma 26 rows from (3)/(4).zip (byte-identical to N02_activation_metrics.csv.bak); 44,800 non-gemma rows copied unchanged from N02_activation_metrics.csv",
+    "rowchange_log": "data/review/N02_gemma_capture_void_20261019.rowchanges.csv",
+    "rowchange_entries": 182
+  },
+  "outstanding": [
+    "400-text raw gemma-2-2b capture still absent; only T100 (26 rows) is valid.",
+    "reports/analysis/* were generated from the void gemma rows and must be regenerated before any 6-model claim is made.",
+    "N02_capture_run_metadata.json records per_model={} and a 0.06 s duration; tokenizer ID and seed are not recorded (violates AGENTS.md)."
+  ],
+  "audit_record": {
+    "markdown": "data/review/N02_gemma_capture_void_20261019.md",
+    "json": "data/review/N02_gemma_capture_void_20261019.json"
+  }
+}
